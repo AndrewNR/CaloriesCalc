@@ -1,2 +1,0 @@
-# CaloriesCalc
-Created with CodeSandbox
