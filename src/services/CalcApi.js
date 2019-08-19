@@ -4,14 +4,22 @@ const CaloriesCalculator = {
     const muscleMass = calcMuscleMass(opts, fatPerc);
     const metabolism = calcMetabolism(muscleMass);
 
+    const ageReductions = calcAgeReductions(opts.age);
+    const { coefficient: ageCoefficient = 1 } = ageReductions;
+
+    console.log("[calcCaloriesConsumption] ageReductions", ageReductions);
+
     const caloriesConsumption = calcCaloriesConsumption(
       metabolism,
-      opts.activity
+      opts.activity,
+      ageCoefficient
     );
+
     return {
       fatPerc,
       muscleMass,
       metabolism,
+      ageCoefficient,
       caloriesConsumption
     };
   }
@@ -60,8 +68,29 @@ const calcMetabolism = muscleMass => {
   return result;
 };
 
-const calcCaloriesConsumption = (metabolism = 0, activityMultiplier = 1) => {
-  return metabolism * activityMultiplier;
+const calcCaloriesConsumption = (
+  metabolism = 0,
+  activityMultiplier = 1,
+  ageCoefficient = 1
+) => {
+  return metabolism * activityMultiplier * ageCoefficient;
+};
+
+const calcAgeReductions = age => {
+  let result = { coefficient: 1.0 };
+
+  if (age >= 20) {
+    const yearsOver20 = age - 20;
+    const decadesOver20 = Math.ceil(yearsOver20 / 10.0);
+    const ageReductionCoef = decadesOver20 * 0.02;
+    result = Object.assign({}, result, {
+      yearsOver20,
+      decadesOver20,
+      ageReductionCoef,
+      coefficient: 1.0 - ageReductionCoef
+    });
+  }
+  return result;
 };
 
 export default CaloriesCalculator;

@@ -132,16 +132,27 @@ const FitForm = ({ dataChanged }) => {
 
   const renderResultsTable = (dataRaw = null) => {
     if (dataRaw) {
-      const { fatPerc, muscleMass, metabolism, caloriesConsumption } = dataRaw;
+      const {
+        fatPerc,
+        muscleMass,
+        metabolism,
+        ageCoefficient,
+        caloriesConsumption
+      } = dataRaw;
       const resultsData = {
         fatPerc: { label: "Fat %", value: numFixed(fatPerc) },
         muscleMass: { label: "Muscle Mass", value: numFixed(muscleMass) },
         metabolism: { label: "Metabolism", value: numFixed(metabolism) },
+        ageCoefficient: {
+          label: "Age coefficient",
+          value: numFixed(ageCoefficient)
+        },
         caloriesConsumption: {
           label: "Daily Calories Consumption",
           value: numFixed(caloriesConsumption)
         }
       };
+
       return (
         <div>
           <ResultsTable detailsMap={resultsData} />
