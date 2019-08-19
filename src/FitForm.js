@@ -16,12 +16,32 @@ const FitForm = ({ dataChanged }) => {
 
   const [calculated, setCalculated] = React.useState(false);
 
+  const [validated, setValidated] = React.useState(true);
+
   const [calculatedData, setCalculatedData] = React.useState(null);
 
-  const doReset = () => {
+  const validate = React.useCallback(() => {
+    const data = { gender, age, height, weight, waist, activity };
+    setValidated(validateData(data));
+  }, [gender, age, height, weight, waist, activity]);
+
+  const resetResults = React.useCallback(() => {
     // clear calculated calories, if controlling data was changed
     setCalculatedData(null);
     setCalculated(false);
+    validate();
+  }, [validate]);
+
+  const validateData = data => {
+    return (
+      data &&
+      ["gender", "age", "height", "weight", "waist", "activity"].reduce(
+        (totalValid, fieldName) => {
+          totalValid = totalValid && !!data[fieldName];
+          return totalValid;
+        }
+      )
+    );
   };
 
   React.useEffect(() => {
@@ -32,8 +52,8 @@ const FitForm = ({ dataChanged }) => {
   }, [age, gender, height, weight, waist, activity, dataChanged]);
 
   React.useEffect(() => {
-    doReset();
-  }, [age, gender, height, weight, waist, activity]);
+    resetResults();
+  }, [age, gender, height, weight, waist, activity, resetResults]);
 
   React.useEffect(() => {
     setHeight(gender === "male" ? 180 : 165);
@@ -48,7 +68,7 @@ const FitForm = ({ dataChanged }) => {
   const clearInputField = (e, setterFunc) => {
     e.target.value = "";
     e.stopPropagation();
-    setterFunc && setterFunc(null);
+    setterFunc && setterFunc("");
     return false;
   };
 
@@ -82,21 +102,24 @@ const FitForm = ({ dataChanged }) => {
   const renderFooter = () => {
     const footerContent =
       !!calculated && calculatedData ? (
-        [
+        <div>
           <div className="controls text-center pb-2">
-            <button className="btn btn-outline-info" onClick={() => doReset()}>
+            <button
+              className="btn btn-outline-info"
+              onClick={() => resetResults()}
+            >
               Reset
             </button>
-          </div>,
+          </div>
           <div className="results bg-white">
             {renderResultsTable(calculatedData)}
           </div>
-        ]
+        </div>
       ) : (
         <div className="controls text-center">
           <button
             className="btn btn-primary"
-            disabled={calculated}
+            disabled={calculated || !validated}
             onClick={doCalculate}
           >
             Calculate

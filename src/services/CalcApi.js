@@ -64,13 +64,4 @@ const calcCaloriesConsumption = (metabolism = 0, activityMultiplier = 1) => {
   return metabolism * activityMultiplier;
 };
 
-console.log(
-  CaloriesCalculator.calculate({
-    gender: "male",
-    height: 190,
-    weight: 96,
-    waist: 100
-  })
-);
-
 export default CaloriesCalculator;
