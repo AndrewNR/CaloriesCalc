@@ -181,6 +181,7 @@ const FitForm = ({ dataChanged }) => {
     <div className="container mb-3">
       <div className="row col mx-auto">
         <BSCard
+          className="bg-light mx-auto border-0"
           style={{ maxWidth: "30em" }}
           title="Calculate my calories"
           footer={renderFooter()}
@@ -288,10 +289,15 @@ const FitForm = ({ dataChanged }) => {
   );
 };
 
-const BSCard = ({ title = "Card", children = null, footer = null }) => {
+const BSCard = ({
+  title = "Card",
+  children = null,
+  footer = null,
+  className = "bg-light mx-auto"
+}) => {
   return (
     <div
-      className="card bg-light mx-auto"
+      className={"card" + (className ? " " + className : "")}
       style={{ maxWidth: "30em", minWidth: "20em" }}
     >
       <div className="card-header bg-primary text-white text-center py-2 mb-0">

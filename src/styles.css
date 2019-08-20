@@ -1,7 +1,10 @@
-/* .App {
-  font-family: sans-serif;
-  text-align: center;
-} */
+body,
+body .App {
+  font-family: Roboto, Oxygen, "Segoe UI", "Open Sans", "Helvetica Neue",
+    sans-serif;
+  color: #3b3b3b;
+}
+
 html,
 body {
   background-color: #3c3b3a;

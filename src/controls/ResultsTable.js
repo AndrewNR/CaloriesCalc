@@ -5,8 +5,8 @@ const ResultsTable = ({ detailsMap }) => {
     <div className="table-responsive">
       <table className="table table-sm border-bottom my-0">
         <thead className="thead-light">
-          <tr className="text-muted font-weight-normal">
-            <th>Category</th>
+          <tr>
+            <th className="pl-3">Category</th>
             <th>Value</th>
           </tr>
         </thead>
@@ -15,11 +15,11 @@ const ResultsTable = ({ detailsMap }) => {
             const { label, value, units } = detailsMap[key];
             return (
               <tr key={index}>
-                <td>
+                <td className="text-muted pl-3">
                   {label}
                   {units && <span>&nbsp;({units})</span>}
                 </td>
-                <td className="text-success">{value}</td>
+                <td className="text-dark">{value}</td>
               </tr>
             );
           })}

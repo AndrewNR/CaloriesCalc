@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import FitForm from "./FitForm";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./roboto-font-google.css";
 import "./styles.css";
 
 function App() {
