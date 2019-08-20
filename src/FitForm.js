@@ -181,7 +181,7 @@ const FitForm = ({ dataChanged }) => {
           title="Calculate my calories"
           footer={renderFooter()}
         >
-          <div className="row">
+          <div className="row py-2">
             <div className="inputs row form-inline">
               <div className="container mb-1 text-center">
                 <GenderToggle
@@ -295,8 +295,8 @@ const BSCard = ({
       className={"card" + (className ? " " + className : "")}
       style={{ maxWidth: "30em", minWidth: "20em" }}
     >
-      <div className="card-header bg-primary text-white text-center py-2 mb-0">
-        <h4 className="card-title">{title}</h4>
+      <div className="card-header bg-primary text-white text-center py-2 mb-0 card-title">
+        <h3>{title}</h3>
       </div>
       <div className="card-body py-1 container-fluid">{children}</div>
       {footer}
