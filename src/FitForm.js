@@ -137,7 +137,8 @@ const FitForm = ({ dataChanged }) => {
         muscleMass,
         metabolism,
         ageCoefficient,
-        caloriesConsumption
+        calsConsumption,
+        calsConsumptionWeightLoss
       } = dataRaw;
       const resultsData = {
         fatPerc: { label: "Body Fat", value: numFixed(fatPerc), units: "%" },
@@ -156,8 +157,13 @@ const FitForm = ({ dataChanged }) => {
           value: numFixed(ageCoefficient)
         },
         caloriesConsumption: {
-          label: "Daily Calories Consumption",
-          value: numFixed(caloriesConsumption),
+          label: "Daily Calories",
+          value: numFixed(calsConsumption),
+          units: "kcal/day"
+        },
+        caloriesConsumptionWeightLoss: {
+          label: "Weight Loss Target",
+          value: numFixed(calsConsumptionWeightLoss),
           units: "kcal/day"
         }
       };

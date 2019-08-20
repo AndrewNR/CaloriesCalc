@@ -9,18 +9,21 @@ const CaloriesCalculator = {
 
     console.log("[calcCaloriesConsumption] ageReductions", ageReductions);
 
-    const caloriesConsumption = calcCaloriesConsumption(
+    const calsConsumption = calcCaloriesConsumption(
       metabolism,
       opts.activity,
       ageCoefficient
     );
+
+    const calsConsumptionWeightLoss = calsConsumption * 0.8;
 
     return {
       fatPerc,
       muscleMass,
       metabolism,
       ageCoefficient,
-      caloriesConsumption
+      calsConsumption,
+      calsConsumptionWeightLoss
     };
   }
 };
