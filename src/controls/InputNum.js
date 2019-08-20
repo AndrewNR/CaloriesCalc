@@ -35,7 +35,6 @@ const InputNum = props => {
   const onInput =
     props.onInput ||
     (e => {
-      console.log("[InputNum.onInput] invoked.");
       const txtValue = e.target.value;
       let numValue =
         txtValue &&
