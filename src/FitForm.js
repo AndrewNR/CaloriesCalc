@@ -154,7 +154,8 @@ const FitForm = ({ dataChanged }) => {
         caloriesConsumption: {
           label: "Daily Calories",
           value: numFixed(calsConsumption),
-          units: "kcal/day"
+          units: "kcal/day",
+          rowClassName: "font-weight-bold"
         },
         caloriesConsumptionWeightLoss: {
           label: "Weight Loss Target",

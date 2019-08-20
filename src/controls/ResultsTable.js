@@ -12,9 +12,11 @@ const ResultsTable = ({ detailsMap }) => {
         </thead>
         <tbody>
           {Object.keys(detailsMap).map((key, index) => {
-            const { label, value, units } = detailsMap[key];
+            const { label, value, units = "", rowClassName = "" } = detailsMap[
+              key
+            ];
             return (
-              <tr key={index}>
+              <tr key={index} className={rowClassName}>
                 <td className="text-muted pl-3">
                   {label}
                   {units && <span>&nbsp;({units})</span>}
