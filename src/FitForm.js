@@ -140,16 +140,25 @@ const FitForm = ({ dataChanged }) => {
         caloriesConsumption
       } = dataRaw;
       const resultsData = {
-        fatPerc: { label: "Fat %", value: numFixed(fatPerc) },
-        muscleMass: { label: "Muscle Mass", value: numFixed(muscleMass) },
-        metabolism: { label: "Metabolism", value: numFixed(metabolism) },
+        fatPerc: { label: "Body Fat", value: numFixed(fatPerc), units: "%" },
+        muscleMass: {
+          label: "Muscle Mass",
+          value: numFixed(muscleMass),
+          units: "kg"
+        },
+        metabolism: {
+          label: "Metabolism",
+          value: numFixed(metabolism),
+          units: "kcal"
+        },
         ageCoefficient: {
           label: "Age coefficient",
           value: numFixed(ageCoefficient)
         },
         caloriesConsumption: {
           label: "Daily Calories Consumption",
-          value: numFixed(caloriesConsumption)
+          value: numFixed(caloriesConsumption),
+          units: "kcal/day"
         }
       };
 

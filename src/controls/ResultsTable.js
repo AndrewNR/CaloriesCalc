@@ -12,10 +12,13 @@ const ResultsTable = ({ detailsMap }) => {
         </thead>
         <tbody>
           {Object.keys(detailsMap).map((key, index) => {
-            const { label, value } = detailsMap[key];
+            const { label, value, units } = detailsMap[key];
             return (
               <tr key={index}>
-                <td>{label}</td>
+                <td>
+                  {label}
+                  {units && <span>&nbsp;({units})</span>}
+                </td>
                 <td className="text-success">{value}</td>
               </tr>
             );
