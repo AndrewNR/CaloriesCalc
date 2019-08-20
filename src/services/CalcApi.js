@@ -47,7 +47,8 @@ const calcFatPercFemale = ({ height, weight, waist }) => {
   let result = 1;
   if (waist && height && weight && waist > 10 && height > 50 && weight > 10) {
     result =
-      100 - (0.11077 * waist - 0.17666 * height + 0.14354 * weight + 51.033);
+      100 -
+      (0.11077 * waist - 0.17666 * height * 0.01 + 0.14354 * weight + 51.033);
   }
   return result;
 };
