@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/CaloriesCalc/static/css/main.5f871fcd.chunk.css",
+    "main.js": "/CaloriesCalc/static/js/main.b9c5bcf5.chunk.js",
+    "main.js.map": "/CaloriesCalc/static/js/main.b9c5bcf5.chunk.js.map",
+    "runtime~main.js": "/CaloriesCalc/static/js/runtime~main.99d1fd54.js",
+    "runtime~main.js.map": "/CaloriesCalc/static/js/runtime~main.99d1fd54.js.map",
+    "static/css/2.1e66eaca.chunk.css": "/CaloriesCalc/static/css/2.1e66eaca.chunk.css",
+    "static/js/2.f90e617b.chunk.js": "/CaloriesCalc/static/js/2.f90e617b.chunk.js",
+    "static/js/2.f90e617b.chunk.js.map": "/CaloriesCalc/static/js/2.f90e617b.chunk.js.map",
+    "index.html": "/CaloriesCalc/index.html",
+    "precache-manifest.e620048fc63a93f13dd24bf76957a0e1.js": "/CaloriesCalc/precache-manifest.e620048fc63a93f13dd24bf76957a0e1.js",
+    "service-worker.js": "/CaloriesCalc/service-worker.js",
+    "static/css/2.1e66eaca.chunk.css.map": "/CaloriesCalc/static/css/2.1e66eaca.chunk.css.map",
+    "static/css/main.5f871fcd.chunk.css.map": "/CaloriesCalc/static/css/main.5f871fcd.chunk.css.map"
+  }
+}
